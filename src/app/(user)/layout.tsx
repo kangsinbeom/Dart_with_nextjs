@@ -1,8 +1,9 @@
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="ko">
-      <body>{children}</body>
-    </html>
+    <main>
+      <header>No Root Navbar</header>
+      {children}
+    </main>
   );
 };
 
