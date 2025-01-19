@@ -33,6 +33,9 @@ export default {
         cpink: "#f931cd",
         ccyan: "#39e99f",
       },
+      fontFamily: {
+        pretendard: ["Pretendard", "sans-serif"],
+      },
     },
   },
   plugins: [],
