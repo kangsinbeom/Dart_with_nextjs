@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/ui/common/navbar/navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,7 +14,6 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="max-w-[1440px] h-fit m-auto font-pretendard-bold">
-        <Navbar />
         {children}
       </body>
     </html>

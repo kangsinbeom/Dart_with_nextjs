@@ -36,7 +36,28 @@ export default {
       fontFamily: {
         pretendard: ["Pretendard", "sans-serif"],
       },
+      keyframes: {},
+      animation: {
+        "under-line": "",
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    ({ addUtilities }) => {
+      addUtilities(
+        {
+          ".custom-scale-auto": {
+            transition: "transform 300ms",
+          },
+          ".custom-scale-auto:hover": {
+            transform: "scale(1.1)", // hover 상태에서 scale 1.1
+          },
+          ".custom-scale-auto:active": {
+            transform: "scale(0.95)", // active 상태에서 scale 0.95
+          },
+        },
+        ["responsive", "hover", "active"] // responsive, hover, active 상태 지원
+      );
+    },
+  ],
 } satisfies Config;

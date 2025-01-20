@@ -7,8 +7,8 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <div className="flex w-full h-[80px] bg-cgray-50 justify-between items-center">
-      <Link href="/">
+    <div className="flex w-full h-[80px] bg-cgray-50 justify-between items-center px-[80px]">
+      <Link href="/home">
         <MainLogoIcon />
       </Link>
       <div className="flex gap-5">
