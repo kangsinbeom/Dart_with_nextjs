@@ -25,7 +25,7 @@ const ButtonBox = () => {
           );
         }
         return (
-          <li key={name} className="text-sm">
+          <li key={name} className="text-sm custom-hover-effect">
             <Link href={`${src}`}>{name}</Link>
           </li>
         );

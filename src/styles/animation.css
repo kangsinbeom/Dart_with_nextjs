@@ -8,4 +8,24 @@
   .custom-scale-auto:active {
     transform: scale(0.95); /* active 시 scale 0.95 직접 정의 */
   }
+
+  .custom-hover-effect {
+    @apply relative inline-block; /* 기본 스타일 */
+  }
+
+  .custom-hover-effect::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background-color: black;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+
+  .custom-hover-effect:hover::after {
+    width: 100%;
+    left: 0;
+  }
 }

@@ -8,7 +8,15 @@ export default {
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      desktop: { max: "1440px" },
+      tablet: { max: "1024px" },
+      mobile: { max: "610px" },
+    },
     extend: {
+      containers: {
+        mobile: "600px",
+      },
       colors: {
         cred: {
           50: "#fd5d5d",
@@ -43,20 +51,42 @@ export default {
     },
   },
   plugins: [
+    require("@tailwindcss/container-queries"),
     ({ addUtilities }) => {
       addUtilities(
         {
+          // 기존 스타일
           ".custom-scale-auto": {
             transition: "transform 300ms",
           },
           ".custom-scale-auto:hover": {
-            transform: "scale(1.1)", // hover 상태에서 scale 1.1
+            transform: "scale(1.1)",
           },
           ".custom-scale-auto:active": {
-            transform: "scale(0.95)", // active 상태에서 scale 0.95
+            transform: "scale(0.95)",
+          },
+
+          // custom-hover-effect 추가
+          ".custom-hover-effect": {
+            position: "relative",
+            display: "inline-block",
+          },
+          ".custom-hover-effect::after": {
+            content: '""',
+            position: "absolute",
+            width: "0",
+            height: "2px",
+            bottom: "-2px",
+            left: "50%",
+            backgroundColor: "black",
+            transition: "width 0.3s ease, left 0.3s ease",
+          },
+          ".custom-hover-effect:hover::after": {
+            width: "100%",
+            left: "0",
           },
         },
-        ["responsive", "hover", "active"] // responsive, hover, active 상태 지원
+        ["responsive", "hover", "active"] // 필요한 상태 지원
       );
     },
   ],
