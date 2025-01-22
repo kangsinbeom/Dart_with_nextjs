@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
-const plugin = require("tailwindcss/plugin");
+import plugin from "tailwindcss/plugin";
+import tailwindcssAnimated from "tailwindcss-animated"; // require 대체
 
 export default {
   content: [
@@ -53,42 +54,44 @@ export default {
   },
   plugins: [
     plugin(({ addUtilities }) => {
-      addUtilities(
-        {
-          // 기존 스타일
-          ".scale-auto": {
-            transition: "transform 300ms",
-          },
-          ".scale-auto:hover": {
-            transform: "scale(1.1)",
-          },
-          ".scale-auto:active": {
-            transform: "scale(0.95)",
-          },
-
-          // hover-effect 추가
-          ".hover-effect": {
-            position: "relative",
-            display: "inline-block",
-          },
-          ".hover-effect::after": {
-            content: '""',
-            position: "absolute",
-            width: "0",
-            height: "2px",
-            bottom: "-2px",
-            left: "50%",
-            backgroundColor: "black",
-            transition: "width 0.3s ease, left 0.3s ease",
-          },
-          ".hover-effect:hover::after": {
-            width: "100%",
-            left: "0",
-          },
+      addUtilities({
+        // 기존 스타일
+        ".scale-auto": {
+          transition: "transform 300ms",
         },
-        ["responsive", "hover", "active"] // 필요한 상태 지원
-      );
+        ".scale-auto:hover": {
+          transform: "scale(1.1)",
+        },
+        ".scale-auto:active": {
+          transform: "scale(0.95)",
+        },
+
+        // hover-effect 추가
+        ".hover-effect": {
+          position: "relative",
+          display: "inline-block",
+        },
+        ".hover-effect::after": {
+          content: '""',
+          position: "absolute",
+          width: "0",
+          height: "2px",
+          bottom: "-2px",
+          left: "50%",
+          backgroundColor: "black",
+          transition: "width 0.3s ease, left 0.3s ease",
+        },
+        ".hover-effect:hover::after": {
+          width: "100%",
+          left: "0",
+        },
+        ".center-position": {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        },
+      });
     }),
-    require("tailwindcss-animated"),
+    tailwindcssAnimated, // Import된 모듈 사용
   ],
 } satisfies Config;
