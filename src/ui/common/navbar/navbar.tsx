@@ -2,6 +2,7 @@
 
 import MainLogoIcon from "../../icon/mainLogo";
 import ButtonBox from "./buttonBox";
+import ButtonHamburger from "./buttonHamburger";
 import UserBox from "./userBox";
 import Link from "next/link";
 
@@ -15,6 +16,7 @@ export const Navbar = () => {
         <ButtonBox />
         <UserBox />
       </div>
+      <ButtonHamburger />
     </div>
   );
 };

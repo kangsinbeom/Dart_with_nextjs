@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const plugin = require("tailwindcss/plugin");
 
 export default {
   content: [
@@ -51,27 +52,26 @@ export default {
     },
   },
   plugins: [
-    require("@tailwindcss/container-queries"),
-    ({ addUtilities }) => {
+    plugin(({ addUtilities }) => {
       addUtilities(
         {
           // 기존 스타일
-          ".custom-scale-auto": {
+          ".scale-auto": {
             transition: "transform 300ms",
           },
-          ".custom-scale-auto:hover": {
+          ".scale-auto:hover": {
             transform: "scale(1.1)",
           },
-          ".custom-scale-auto:active": {
+          ".scale-auto:active": {
             transform: "scale(0.95)",
           },
 
-          // custom-hover-effect 추가
-          ".custom-hover-effect": {
+          // hover-effect 추가
+          ".hover-effect": {
             position: "relative",
             display: "inline-block",
           },
-          ".custom-hover-effect::after": {
+          ".hover-effect::after": {
             content: '""',
             position: "absolute",
             width: "0",
@@ -81,13 +81,14 @@ export default {
             backgroundColor: "black",
             transition: "width 0.3s ease, left 0.3s ease",
           },
-          ".custom-hover-effect:hover::after": {
+          ".hover-effect:hover::after": {
             width: "100%",
             left: "0",
           },
         },
         ["responsive", "hover", "active"] // 필요한 상태 지원
       );
-    },
+    }),
+    require("tailwindcss-animated"),
   ],
 } satisfies Config;

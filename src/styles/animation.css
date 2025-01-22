@@ -1,19 +1,19 @@
 @layer utilities {
-  .custom-scale-auto {
+  .scale-auto {
     @apply transition-transform duration-300;
   }
-  .custom-scale-auto:hover {
+  .scale-auto:hover {
     @apply scale-110; /* hover 시 scale 1.1 */
   }
-  .custom-scale-auto:active {
+  .scale-auto:active {
     transform: scale(0.95); /* active 시 scale 0.95 직접 정의 */
   }
 
-  .custom-hover-effect {
+  .hover-effect {
     @apply relative inline-block; /* 기본 스타일 */
   }
 
-  .custom-hover-effect::after {
+  .hover-effect::after {
     content: "";
     position: absolute;
     width: 0;
@@ -24,8 +24,11 @@
     transition: width 0.3s ease, left 0.3s ease;
   }
 
-  .custom-hover-effect:hover::after {
+  .hover-effect:hover::after {
     width: 100%;
     left: 0;
+  }
+
+  .fade-in {
   }
 }

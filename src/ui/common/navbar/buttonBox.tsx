@@ -1,14 +1,7 @@
 import CouponIcon from "@/ui/icon/coupon";
-import { LIstItem } from "@/utils/type";
+import { listItem } from "@/utils/data";
 import Link from "next/link";
-import React from "react";
 
-const listItem: LIstItem[] = [
-  { name: "CUOPON", src: "/event" },
-  { name: "ABUOT", src: "/intro" },
-  { name: "EXHIBITIONS", src: "/home" },
-  { name: "CONTACT", src: "/contact" },
-];
 // after: 쿠폰은 따로 이미지 파일로 빼서 구성할 것임
 
 const ButtonBox = () => {
@@ -17,16 +10,16 @@ const ButtonBox = () => {
       {listItem.map(({ name, src }) => {
         if (name === "CUOPON") {
           return (
-            <li key={name} className="custom-scale-auto">
-              <Link href={`${src}`}>
+            <li key={name} className="scale-auto">
+              <Link href={src}>
                 <CouponIcon />
               </Link>
             </li>
           );
         }
         return (
-          <li key={name} className="text-sm custom-hover-effect">
-            <Link href={`${src}`}>{name}</Link>
+          <li key={name} className="text-sm hover-effect">
+            <Link href={src}>{name}</Link>
           </li>
         );
       })}
