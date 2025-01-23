@@ -2,20 +2,18 @@ import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  // 먼저 리다이렉트를 하고 그 후에 쿠키를 설정
-  const response = NextResponse.redirect(new URL("/home", request.url));
+  // matcher에 정해진 값 외에는 /home으로 가게하고 싶은데...
+  const allowedPaths = ["/home", "/intro", "/login"];
+  const url = request.nextUrl.pathname;
 
-  const visitPreference = request.cookies.get("visit");
-
-  // 쿠키가 없으면 visit 쿠키를 설정
-  if (!visitPreference) {
-    response.cookies.set("visit", "true");
+  if (!allowedPaths.includes(url)) {
+    return NextResponse.redirect(new URL("/home", request.url));
   }
-
-  // 최종적으로 수정된 response를 반환
-  return response;
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: "/",
+  matcher: [
+    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+  ],
 };
