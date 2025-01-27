@@ -1,33 +1,40 @@
-import LoginBox from "@/ui/login/loginBox";
-import Image from "next/image";
+"use client";
+
+import InputField from "@/ui/common/input/inputField";
+import HarfArrowIcon from "@/ui/icon/halfArrow";
+import LogoIcon from "@/ui/icon/logo";
+import LoginButtons from "@/ui/login/loginButtons";
+import SocialButtons from "@/ui/login/socialButtons";
+import { loginFormData } from "@/utils/data";
+import { LoginFormDataType } from "@/utils/type";
+import { useForm } from "react-hook-form";
 
 const LoginPage = () => {
+  const {
+    register,
+    formState: { errors },
+  } = useForm<LoginFormDataType>();
+
   return (
-    <div className="relative h-screen flex-col overflow-hidden bg-cblack-100 center-position">
-      <Image
-        src="/images/whyNot.png"
-        alt="image2"
-        width={900}
-        height={200}
-        style={{
-          position: "absolute",
-          transform: "translate(-35%, -120%)",
-          minWidth: 900,
-        }}
-      />
-      <Image
-        src="/images/getIn.png"
-        alt="image"
-        width={900}
-        height={200}
-        style={{
-          position: "absolute",
-          transform: "translate(35%, 140%)",
-          minWidth: 900,
-        }}
-      />
-      <LoginBox />
-    </div>
+    <section className="relative flex w-full max-w-[500px] flex-col px-5">
+      <header className="relative center-position">
+        <HarfArrowIcon styles="absolute left-0" />
+        <LogoIcon />
+      </header>
+      <div className="pb-16">
+        {loginFormData.map(({ label, registerOptions, value }) => (
+          <InputField
+            key={value}
+            register={register(value, registerOptions)}
+            label={label}
+            value={value}
+            error={errors[value]}
+          />
+        ))}
+      </div>
+      <LoginButtons />
+      <SocialButtons />
+    </section>
   );
 };
 

@@ -90,6 +90,7 @@ export default {
           justifyContent: "center",
           alignItems: "center",
         },
+        ".autocomplete": {},
       });
     }),
     tailwindcssAnimated, // Import된 모듈 사용
