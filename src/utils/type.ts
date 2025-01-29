@@ -28,3 +28,8 @@ export interface LoginButtonsType {
   buttonLabel: string;
   path: string;
 }
+
+export interface AgreeInfoType {
+  title: string;
+  desc: string;
+}

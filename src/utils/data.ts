@@ -1,4 +1,9 @@
-import { LIstItem, LoginButtonsType, LoginFormField } from "./type";
+import {
+  AgreeInfoType,
+  LIstItem,
+  LoginButtonsType,
+  LoginFormField,
+} from "./type";
 
 export const listItem: LIstItem[] = [
   { name: "CUOPON", src: "/event" },
@@ -42,5 +47,20 @@ export const loginButtons: LoginButtonsType[] = [
     title: "비밀번호를 잊으셨나요?",
     buttonLabel: "비밀번호 찾기",
     path: "", // 구현 예정인걸 나타내자
+  },
+];
+
+export const agreeInfo: AgreeInfoType[] = [
+  {
+    title: "[필수] 이용약관",
+    desc: "",
+  },
+  {
+    title: "[필수] 개인정보 수집, 이용 동의",
+    desc: "",
+  },
+  {
+    title: "[필수] 저작권 침해 동의",
+    desc: "",
   },
 ];
