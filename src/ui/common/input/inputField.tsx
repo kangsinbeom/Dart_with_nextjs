@@ -1,42 +1,40 @@
-"use client";
-
+import useInputOptions from "@/hooks/useInputOptions";
 import BlindIcon from "@/ui/icon/blind";
-import getInputFieldOptions from "@/utils/func/getInputFieldOption";
 import clsx from "clsx";
-import { useEffect, useState } from "react";
-import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 
-interface InputFieldProps {
+export interface InputFieldProps {
   label: string;
   value: string;
-  register: UseFormRegisterReturn<string>;
-  error?: FieldError | undefined;
   disabled?: boolean;
 }
 
-const InputField = ({
-  label,
-  value,
-  register,
-  error,
-  disabled = false,
-}: InputFieldProps) => {
-  const [isFocused, setIsFocused] = useState<boolean>(false);
-  const [isBlind, setIsBlind] = useState<boolean>(true);
+const InputField = ({ label, value, disabled = false }: InputFieldProps) => {
+  const {
+    isBlinded,
+    isFocused,
+    toggleBlinded,
+    labelFocusedNBlur,
+    inputOptions,
+  } = useInputOptions({ label });
 
-  const inputOptions = getInputFieldOptions(value, isBlind);
-
-  useEffect(() => {
-    if (value === "email" || value === "nickname") {
+  /**
+ *
+ * useEffect(() => {
+    if (label === "email" || label === "nickname") {
       setIsFocused(true);
     }
-  }, [value]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [label]);
+  // 이거 signupForm이나 이런 상위 컴포넌트로 뺄 수 없나? 거기서 가장 상위에 있는 input에 focus되도록 하는 방식으로다가
+
+ */
+
   return (
-    <div className="relative mt-10 flex w-full flex-col border-b border-white">
+    <div className="relative flex w-full flex-row items-center gap-5">
       <label
         className={clsx(
-          "absolute top-0 text-xl text-cwhite transition-all",
-          isFocused ? "top-[-15px] text-sm" : "",
+          isFocused ? "top-[-15px] text-sm" : "text-xl",
+          "absolute top-0 text-cwhite transition-all duration-300",
         )}
         htmlFor={value}
       >
@@ -44,30 +42,24 @@ const InputField = ({
       </label>
       <input
         id={value}
-        {...register}
         {...inputOptions}
+        {...labelFocusedNBlur}
         autoFocus={value === "email" || value === "nickname" ? true : false}
-        onFocus={() => setIsFocused(true)}
-        onBlur={(e) => {
-          if (e.target.value === "") {
-            setIsFocused(false);
-          }
-        }}
         disabled={disabled}
         maxLength={40}
         className={clsx(
-          "mt-3 rounded-sm border-b border-white p-2 pt-0 text-lg text-white",
+          "mt-3 w-full rounded-sm border-b border-white p-2 pt-0 text-lg text-white",
           disabled ? "bg-cgray-500" : "",
         )}
       />
-      {value.includes("password") && (
+      {label.includes("password") && (
         <BlindIcon
-          onClick={() => setIsBlind((prev) => !prev)}
-          color={isBlind ? "white" : "green"}
-          styles="absolute right-0"
+          onClick={toggleBlinded}
+          color={isBlinded ? "white" : "green"}
+          styles="absolute right-0 top-1/2 -translate-y-1/2"
         />
       )}
-      {error && <div className="absolute text-cred-900">{error?.message}</div>}
+      {/* {error && <div className="absolute text-cred-900">{error?.message}</div>} */}
     </div>
   );
 };

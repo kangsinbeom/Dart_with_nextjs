@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Provider from "./provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,9 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="max-w-[1440px] h-fit m-auto font-pretendard-bold">
-        {children}
-      </body>
+      <Provider>
+        <body className="font-pretendard-bold m-auto h-fit max-w-[1440px]">
+          {children}
+          <div id="modal-portal"></div>
+        </body>
+      </Provider>
     </html>
   );
 }
