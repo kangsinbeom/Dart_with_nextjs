@@ -17,11 +17,19 @@ interface LabelFocusedNBlurType {
   onBlur: (e: FocusEvent<HTMLInputElement, Element>) => void;
 }
 
-const useInputOptions = ({ label }: { label: string }): UseInputOptionsType => {
+interface UseInputOptionsParams {
+  label: string;
+  disabled?: boolean;
+}
+
+const useInputOptions = ({
+  label,
+  disabled = false,
+}: UseInputOptionsParams): UseInputOptionsType => {
   const [inputOption, setInputOption] = useState<
     Pick<UseInputOptionsType, "isBlinded" | "isFocused">
   >({
-    isFocused: false,
+    isFocused: disabled,
     isBlinded: false,
   });
 

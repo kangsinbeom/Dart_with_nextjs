@@ -11,7 +11,16 @@ const ModalPortal = ({ children }: PropsWithChildren) => {
   }, []);
 
   return (
-    <>{modalRoot ? createPortal(<div>{children}</div>, modalRoot) : null}</>
+    <>
+      {modalRoot
+        ? createPortal(
+            <div className="modal-positon bg-black bg-opacity-20 backdrop-blur-md">
+              {children}
+            </div>,
+            modalRoot,
+          )
+        : null}
+    </>
   );
 };
 

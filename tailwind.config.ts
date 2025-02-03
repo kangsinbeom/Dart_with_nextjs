@@ -91,6 +91,16 @@ export default {
           justifyContent: "center",
           alignItems: "center",
         },
+        ".modal-positon": {
+          position: "fixed",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          left: "0",
+        },
         ".autocomplete": {},
       });
     }),

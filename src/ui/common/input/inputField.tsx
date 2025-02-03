@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 export interface InputFieldProps {
   label: string;
-  value: string;
+  value?: string;
   disabled?: boolean;
 }
 
@@ -15,7 +15,7 @@ const InputField = ({ label, value, disabled = false }: InputFieldProps) => {
     toggleBlinded,
     labelFocusedNBlur,
     inputOptions,
-  } = useInputOptions({ label });
+  } = useInputOptions({ label, disabled });
 
   /**
  *
