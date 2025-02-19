@@ -11,6 +11,12 @@ input {
     display: none;
   }
 }
+
+button {
+  &:hover {
+  }
+}
+
 body {
   overflow-x: hidden;
   width: 100vw;

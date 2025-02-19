@@ -1,30 +1,40 @@
 "use client";
 
 import ModalPortal from "@/context/modalPortal";
-import InputWithButton from "../common/input/inputWithButton";
-import SignupInputModal from "../modal/signupInputModal";
 import useOutsideClick from "@/hooks/useOutsideClick";
+import SignupInputModal, {
+  SignupInputModalProps,
+} from "../modal/signupInputModal";
+import InputField, { InputFieldProps } from "../common/input/inputField";
 
-const InputWithModal = () => {
+interface InputWithModalProps extends InputFieldProps {
+  buttonLabel: string;
+  modalInfo: Omit<SignupInputModalProps, "onClickCloseButton">;
+}
+
+const InputWithModal = ({
+  buttonLabel,
+  modalInfo,
+  ...props
+}: InputWithModalProps) => {
   const { isExpand, onToggle } = useOutsideClick();
   return (
     <div>
-      <InputWithButton
-        buttonLabel="이메일 인증"
-        label="이메일"
-        disabled
-        onClickButton={onToggle}
-      />
+      <div className="flex flex-row items-end gap-10">
+        <InputField {...props} disabled />
+        <button
+          className="h-10 w-20 min-w-24 border text-xs"
+          onClick={onToggle}
+        >
+          {buttonLabel}
+        </button>
+      </div>
       {isExpand && (
         <ModalPortal>
-          <SignupInputModal
-            header="이메일 검증"
-            buttonLabel="인증번호 받기"
-            label="이메일"
-            onClickCloseButton={onToggle}
-          />
+          <SignupInputModal {...modalInfo} onClickCloseButton={onToggle} />
         </ModalPortal>
       )}
+      <div></div>
     </div>
   );
 };

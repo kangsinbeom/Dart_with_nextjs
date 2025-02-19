@@ -32,4 +32,6 @@ export interface LoginButtonsType {
 export interface AgreeInfoType {
   title: string;
   desc: string;
+  checked?: boolean;
+  onToggleButton: () => void;
 }

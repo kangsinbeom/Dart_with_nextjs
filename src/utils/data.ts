@@ -5,6 +5,7 @@ import {
   LoginFormField,
 } from "./type";
 
+// Navbar info
 export const listItem: LIstItem[] = [
   { name: "CUOPON", src: "/event" },
   { name: "ABUOT", src: "/intro" },
@@ -12,6 +13,7 @@ export const listItem: LIstItem[] = [
   { name: "CONTACT", src: "/contact" },
 ];
 
+// LoginForm Data
 export const loginFormData: LoginFormField[] = [
   {
     label: "이메일",
@@ -37,11 +39,12 @@ export const loginFormData: LoginFormField[] = [
   },
 ];
 
+// LoginLinkedButton
 export const loginButtons: LoginButtonsType[] = [
   {
     title: "계정이 없으세요?",
     buttonLabel: "회원가입",
-    path: "/signup",
+    path: "/signup/agree",
   },
   {
     title: "비밀번호를 잊으셨나요?",
@@ -50,6 +53,7 @@ export const loginButtons: LoginButtonsType[] = [
   },
 ];
 
+// Signup Agree Page info
 export const agreeInfo: AgreeInfoType[] = [
   {
     title: "[필수] 이용약관",

@@ -2,7 +2,7 @@ import InputWithButton, {
   InputWithButtonProps,
 } from "../common/input/inputWithButton";
 
-interface SignupInputModalProps
+export interface SignupInputModalProps
   extends Pick<InputWithButtonProps, "buttonLabel" | "label"> {
   onClickCloseButton: () => void;
   header: string;
