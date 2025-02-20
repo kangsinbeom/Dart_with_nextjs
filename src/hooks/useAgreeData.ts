@@ -18,7 +18,7 @@ const useAgreeData = () => {
   const onClickNextButton = () => {
     if (!disabled) {
       router.push("/signup/info");
-      localStorage.setItem("agreement", "true");
+      document.cookie = "agreement=true; path=/; max-age=2592000"; // 30일 유지
     }
   };
   const onToggleButton = (index: number) =>

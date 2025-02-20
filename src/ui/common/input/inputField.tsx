@@ -41,6 +41,7 @@ const InputField = ({ label, value, disabled = false }: InputFieldProps) => {
         {label}
       </label>
       <input
+        name={value}
         id={value}
         {...inputOptions}
         {...labelFocusedNBlur}
@@ -52,10 +53,10 @@ const InputField = ({ label, value, disabled = false }: InputFieldProps) => {
           disabled ? "bg-cgray-500" : "",
         )}
       />
-      {label.includes("password") && (
+      {value?.toLocaleLowerCase().includes("password") && (
         <BlindIcon
           onClick={toggleBlinded}
-          color={isBlinded ? "white" : "green"}
+          color={isBlinded ? "green" : "white"}
           styles="absolute right-0 top-1/2 -translate-y-1/2"
         />
       )}

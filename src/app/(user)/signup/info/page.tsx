@@ -1,4 +1,3 @@
-import Test from "@/ui/common/Test";
 import Line from "@/ui/common/textNLine/line";
 import SignupForm from "@/ui/signup/signupForm";
 
@@ -10,7 +9,6 @@ const SignupInfoPage = () => {
         <Line />
       </div>
       <SignupForm />
-      <Test />
     </div>
   );
 };

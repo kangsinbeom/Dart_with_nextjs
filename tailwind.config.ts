@@ -9,6 +9,7 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/context/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/provider/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     screens: {

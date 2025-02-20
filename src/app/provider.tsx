@@ -1,7 +1,13 @@
+import ModalProvider from "@/provider/modalProvider";
 import React, { PropsWithChildren } from "react";
 
 const Provider = ({ children }: PropsWithChildren) => {
-  return <>{children}</>;
+  return (
+    <>
+      <ModalProvider />
+      {children}
+    </>
+  );
 };
 
 export default Provider;
