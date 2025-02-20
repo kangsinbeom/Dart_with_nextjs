@@ -18,6 +18,7 @@ export default function RootLayout({
         <body className="font-pretendard-bold m-auto h-fit max-w-[1440px]">
           {children}
           <div id="modal-portal"></div>
+          <div id="alert-portal"></div>
         </body>
       </Provider>
     </html>

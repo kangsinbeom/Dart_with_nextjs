@@ -16,9 +16,7 @@ const ModalPortal = () => {
     <>
       {modalRoot
         ? createPortal(
-            <div className="bg-black bg-opacity-20 backdrop-blur-md modal-positon">
-              {render(type)}
-            </div>,
+            <div className="dimmed modal-positon">{render(type)}</div>,
             modalRoot,
           )
         : null}

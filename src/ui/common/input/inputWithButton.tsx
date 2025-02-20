@@ -3,20 +3,23 @@ import InputField, { InputFieldProps } from "./inputField";
 interface InputWithButtonProps extends InputFieldProps {
   buttonLabel: string;
   onClickButton: () => void;
+  buttonType?: "button" | "submit" | "reset";
 }
 
 const InputWithButton = ({
   buttonLabel,
   onClickButton,
+  buttonType = "button",
   ...props
 }: InputWithButtonProps) => {
   return (
     <div>
       <div className="flex flex-row items-end gap-10">
-        <InputField {...props} disabled />
+        <InputField {...props} />
         <button
           className="h-10 w-20 min-w-24 border text-xs"
           onClick={onClickButton}
+          type={buttonType}
         >
           {buttonLabel}
         </button>
@@ -24,12 +27,5 @@ const InputWithButton = ({
     </div>
   );
 };
-
-// const render = (type: string) => {
-//   switch (type) {
-//     case "email":
-//       return <SignupEmailCheckBox />;
-//   }
-// };
 
 export default InputWithButton;

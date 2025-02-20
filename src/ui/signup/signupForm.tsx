@@ -5,9 +5,11 @@ import BackButton from "../common/button/backButton";
 import InputField from "../common/input/inputField";
 import InputWithButton from "../common/input/inputWithButton";
 import { useModalStore } from "@/store/modal";
+import { useAlertStore } from "@/store/alert";
 
 const SignupForm = () => {
   const expendModal = useModalStore((state) => state.expendModal);
+  const expendAlert = useAlertStore((state) => state.expendAlert);
   return (
     <form className="flex flex-col gap-8" action={createUser}>
       <InputWithButton
@@ -15,12 +17,14 @@ const SignupForm = () => {
         value="email"
         buttonLabel="이메일 검증"
         onClickButton={() => expendModal("email")}
+        disabled
       />
       <InputWithButton
         label="닉네임"
         value="nickname"
         buttonLabel="중복 확인"
-        onClickButton={() => {}}
+        onClickButton={() => expendAlert("")}
+        disabled
       />
       <InputField label="비밀번호" value="password" />
       <InputField label="비밀번호 확인" value="checkedPassword" />

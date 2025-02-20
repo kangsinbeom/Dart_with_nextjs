@@ -10,6 +10,7 @@ export default {
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/context/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/provider/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/asset/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     screens: {
@@ -101,6 +102,10 @@ export default {
           right: "0",
           bottom: "0",
           left: "0",
+        },
+        ".dimmed": {
+          backgroundColor: "rgba(0, 0, 0, 0.2)",
+          backdropFilter: "blur(12px)",
         },
         ".autocomplete": {},
       });
