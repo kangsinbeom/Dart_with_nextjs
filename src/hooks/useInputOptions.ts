@@ -1,5 +1,3 @@
-"use client";
-
 import getInputFieldOptions from "@/utils/func/getInputFieldOption";
 import { FocusEvent, useState } from "react";
 

@@ -32,6 +32,16 @@ export interface LoginButtonsType {
 export interface AgreeInfoType {
   title: string;
   desc: string;
-  checked?: boolean;
-  onToggleButton: () => void;
+}
+
+export interface SearchData {
+  filter: "author" | "title" | "hashtag";
+  expense: ("pay" | "free")[];
+  exhibition: "all" | "scheduled" | "inProgress" | "finished";
+  sorted: "popular" | "latest" | "star";
+}
+
+export interface SearchInfoType {
+  text: string;
+  value: string;
 }

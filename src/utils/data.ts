@@ -3,6 +3,8 @@ import {
   LIstItem,
   LoginButtonsType,
   LoginFormField,
+  SearchData,
+  SearchInfoType,
 } from "./type";
 
 // Navbar info
@@ -67,4 +69,28 @@ export const agreeInfo: AgreeInfoType[] = [
     title: "[필수] 저작권 침해 동의",
     desc: "",
   },
+];
+
+// Category Data
+export const initialSearchData: SearchData = {
+  filter: "title",
+  expense: ["free", "pay"],
+  exhibition: "all",
+  sorted: "latest",
+};
+
+export const searchCategoryInfo: SearchInfoType[] = [
+  { text: "제목", value: "title" },
+  { text: "작가", value: "author" },
+  { text: "해시태그", value: "hashtag" },
+];
+export const searchCostInfo: SearchInfoType[] = [
+  { text: "PAY", value: "pay" },
+  { text: "FREE", value: "free" },
+];
+
+export const searchExhibitionInfo: SearchInfoType[] = [
+  { text: "전시예정", value: "scheduled" },
+  { text: "전시중", value: "inProgress" },
+  { text: "전시종료", value: "finished" },
 ];

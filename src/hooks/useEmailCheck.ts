@@ -1,4 +1,3 @@
-"use client";
 
 import { useModalStore } from "@/store/modal";
 import { useAlertStore } from "@/store/alert";
