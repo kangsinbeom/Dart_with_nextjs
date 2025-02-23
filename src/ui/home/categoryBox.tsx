@@ -5,11 +5,12 @@ import AllIcon from "../icon/all";
 import Button from "../common/button/button";
 import { SearchDataKey, SearchInfoType } from "@/utils/type";
 import clsx from "clsx";
+import { ButtonBaseStyles } from "@/utils/func/getButtonStyles";
 
 interface CategoryBox extends SearchState {
   label: string;
   hasAllButton?: boolean;
-  buttonStyle?: string;
+  buttonStyle?: ButtonBaseStyles;
   list: SearchInfoType[];
   listType: SearchDataKey;
 }

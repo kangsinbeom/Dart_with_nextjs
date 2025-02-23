@@ -9,6 +9,7 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/context/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/utils/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/provider/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/asset/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -19,6 +20,9 @@ export default {
       mobile: { max: "610px" },
     },
     extend: {
+      borderWidth: {
+        6: "6px",
+      },
       containers: {
         mobile: "600px",
       },

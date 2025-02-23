@@ -1,4 +1,6 @@
-import getButtonBaseStyles from "@/utils/func/getButtonStyles";
+import getButtonBaseStyles, {
+  ButtonBaseStyles,
+} from "@/utils/func/getButtonStyles";
 import clsx from "clsx";
 import { MouseEvent } from "react";
 
@@ -6,7 +8,7 @@ interface ButtonProps {
   text: string;
   value?: string;
   isFocused?: boolean;
-  style?: string;
+  style?: ButtonBaseStyles;
   onClickHandler?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 const Button = ({
@@ -17,9 +19,10 @@ const Button = ({
   onClickHandler,
 }: ButtonProps) => {
   const baseStyle = getButtonBaseStyles(style);
+  console.log(baseStyle);
   return (
     <button
-      className={clsx(baseStyle, isFocused ? "bg-black text-white" : "")}
+      className={clsx(`${baseStyle}`, isFocused ? "bg-black text-white" : "")}
       onClick={onClickHandler}
       data-value={value}
     >

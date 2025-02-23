@@ -1,5 +1,3 @@
-"use client";
-
 import { SearchState } from "@/store/search";
 import AllIcon from "../icon/all";
 import Button from "../common/button/button";
@@ -7,7 +5,7 @@ import { searchCostInfo } from "@/utils/data";
 
 const CostBox = ({ searchParams, setSearchParams }: SearchState) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 border-cblack-900">
       <div className="flex flex-row items-center gap-2">
         <p>비용</p>
         <AllIcon isSelected={searchParams.expense.length == 2} />

@@ -1,11 +1,15 @@
-const getButtonBaseStyles = (style: string) => {
+export type ButtonBaseStyles = "rounded" | "circle" | "test";
+
+const getButtonBaseStyles = (style: ButtonBaseStyles): string => {
   switch (style) {
-    case "rounded":
-      return "w-full rounded-3xl border border-black py-2 text-xs";
     case "circle":
-      return "h-14 w-14 rounded-full border border-cblack-900";
+      return "h-14 w-14 rounded-full border border-black";
+    case "rounded":
+      return "w-full rounded-full border border-black py-2 text-xs";
+
+    default:
+      return "";
   }
-  return;
 };
 
 export default getButtonBaseStyles;
