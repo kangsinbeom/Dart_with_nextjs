@@ -1,10 +1,10 @@
 import { initialSearchData } from "@/utils/data";
-import { SearchDataType } from "@/utils/type";
+import { SearchData } from "@/utils/type";
 import { MouseEvent } from "react";
 import { create } from "zustand";
 
-interface SearchState {
-  searchParams: SearchDataType;
+export interface SearchState {
+  searchParams: SearchData;
   setSearchParams: (
     category: string,
   ) => (event: MouseEvent<HTMLButtonElement>) => void;

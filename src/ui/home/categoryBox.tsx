@@ -1,43 +1,52 @@
 "use client";
 
-import { useSearchStore } from "@/store/search";
+import { SearchState } from "@/store/search";
 import AllIcon from "../icon/all";
 import Button from "../common/button/button";
-import { SearchInfoType } from "@/utils/type";
+import { SearchDataKey, SearchInfoType } from "@/utils/type";
+import clsx from "clsx";
 
-interface CategoryBox {
+interface CategoryBox extends SearchState {
   label: string;
   hasAllButton?: boolean;
   buttonStyle?: string;
   list: SearchInfoType[];
+  listType: SearchDataKey;
 }
 
 const CategoryBox = ({
   label,
-  hasAllButton = true,
+  hasAllButton = false,
   buttonStyle = "rounded",
   list,
+  listType,
+  searchParams,
+  setSearchParams,
 }: CategoryBox) => {
-  const {
-    searchParams: { expense },
-    setSearchParams,
-  } = useSearchStore();
-
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-row items-center gap-2">
         <p>{label}</p>
-        {hasAllButton && <AllIcon isSelected={expense.length == 2} />}
+        {hasAllButton && (
+          <AllIcon isSelected={searchParams[listType] == "all"} />
+        )}
       </div>
-      <div className="flex gap-4">
+      <div
+        className={clsx(
+          "flex gap-1",
+          buttonStyle === "rounded"
+            ? "rounded-full border border-black p-1"
+            : "",
+        )}
+      >
         {list.map(({ text, value }) => (
           <Button
             key={value}
             text={text}
             value={value}
             style={buttonStyle}
-            isFocused={expense.includes(value as "pay" | "free")}
-            onClickHandler={(event) => setSearchParams("exhibition")(event)}
+            isFocused={searchParams[listType] == value}
+            onClickHandler={(event) => setSearchParams(listType)(event)}
           />
         ))}
       </div>

@@ -1,13 +1,20 @@
 "use client";
 
-import useSearchBoxOption from "@/hooks/useSearchBoxOption";
 import SearchInput from "@/ui/common/input/searchInput";
 import { searchCategoryInfo } from "@/utils/data";
 import Button from "../common/button/button";
+import { SearchState } from "@/store/search";
+import { FormEvent } from "react";
 
-const SearchBox = () => {
-  const { onSubmitHandler, searchParams, setSearchParams } =
-    useSearchBoxOption();
+interface SearchBoxProps extends SearchState {
+  onSubmitHandler: (event: FormEvent<HTMLFormElement>) => void;
+}
+
+const SearchBox = ({
+  onSubmitHandler,
+  searchParams,
+  setSearchParams,
+}: SearchBoxProps) => {
   return (
     <div className="flex flex-col gap-2">
       <SearchInput onSubmitHandler={onSubmitHandler} />

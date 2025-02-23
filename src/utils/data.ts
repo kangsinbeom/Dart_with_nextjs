@@ -94,3 +94,9 @@ export const searchExhibitionInfo: SearchInfoType[] = [
   { text: "전시중", value: "inProgress" },
   { text: "전시종료", value: "finished" },
 ];
+
+export const searchSortedInfo: SearchInfoType[] = [
+  { text: "최신순", value: "latest" },
+  { text: "인기순", value: "popular" },
+  { text: "별점순", value: "star" },
+];

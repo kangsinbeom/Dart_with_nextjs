@@ -45,3 +45,5 @@ export interface SearchInfoType {
   text: string;
   value: string;
 }
+
+export type SearchDataKey = keyof SearchData;
