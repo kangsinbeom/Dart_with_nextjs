@@ -1,6 +1,6 @@
 "use client";
 
-import { createUser } from "@/apis/action";
+import { createUser } from "@/api/action";
 import BackButton from "../common/button/backButton";
 import InputField from "../common/input/inputField";
 import InputWithButton from "../common/input/inputWithButton";

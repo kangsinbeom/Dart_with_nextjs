@@ -8,6 +8,7 @@ const allowedPaths = [
   "/signup",
   "/signup/agree",
   "/signup/info",
+  "/post",
 ];
 
 export function middleware(request: NextRequest) {

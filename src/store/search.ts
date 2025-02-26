@@ -8,6 +8,10 @@ export interface SearchState {
   setSearchParams: (
     category: string,
   ) => (event: MouseEvent<HTMLButtonElement>) => void;
+  setExpenseParams: (
+    isAll: boolean,
+  ) => (event: MouseEvent<HTMLButtonElement>) => void;
+  resetSearchParams: () => void;
 }
 
 export const useSearchStore = create<SearchState>((set, get) => ({
@@ -15,12 +19,24 @@ export const useSearchStore = create<SearchState>((set, get) => ({
   setSearchParams: (category) => {
     return (event: MouseEvent<HTMLButtonElement>) => {
       const value = event.currentTarget.getAttribute("data-value") as string;
-      if (!(category === "expense")) {
+      set((state) => ({
+        ...state,
+        searchParams: { ...state.searchParams, [category]: value },
+      }));
+    };
+  },
+  setExpenseParams: (isAll: boolean) => {
+    return (event: MouseEvent<HTMLButtonElement>) => {
+      if (isAll) {
         set((state) => ({
           ...state,
-          searchParams: { ...state.searchParams, [category]: value },
+          searchParams: {
+            ...state.searchParams,
+            expense: ["free", "pay"],
+          },
         }));
       } else {
+        const value = event.currentTarget.getAttribute("data-value") as string;
         const expense = get().searchParams.expense;
         const newExpense = expense.includes(value as "pay" | "free")
           ? expense.filter((item) => item !== value)
@@ -35,5 +51,8 @@ export const useSearchStore = create<SearchState>((set, get) => ({
         }));
       }
     };
+  },
+  resetSearchParams: () => {
+    set((state) => ({ ...state, searchParams: initialSearchData }));
   },
 }));

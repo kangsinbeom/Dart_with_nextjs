@@ -7,7 +7,8 @@ import { SearchDataKey, SearchInfoType } from "@/utils/type";
 import clsx from "clsx";
 import { ButtonBaseStyles } from "@/utils/func/getButtonStyles";
 
-interface CategoryBox extends SearchState {
+interface CategoryBox
+  extends Pick<SearchState, "setSearchParams" | "searchParams"> {
   label: string;
   hasAllButton?: boolean;
   buttonStyle?: ButtonBaseStyles;
@@ -29,14 +30,19 @@ const CategoryBox = ({
       <div className="flex flex-row items-center gap-2">
         <p>{label}</p>
         {hasAllButton && (
-          <AllIcon isSelected={searchParams[listType] == "all"} />
+          <button
+            onClick={(event) => setSearchParams(listType)(event)}
+            data-value="all"
+          >
+            <AllIcon isSelected={searchParams[listType] === "all"} />
+          </button>
         )}
       </div>
       <div
         className={clsx(
           "flex gap-1",
           buttonStyle === "rounded"
-            ? "rounded-full border border-black p-1"
+            ? "rounded-full border border-black p-0.5"
             : "",
         )}
       >

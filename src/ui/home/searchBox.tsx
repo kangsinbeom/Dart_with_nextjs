@@ -6,7 +6,8 @@ import Button from "../common/button/button";
 import { SearchState } from "@/store/search";
 import { FormEvent } from "react";
 
-interface SearchBoxProps extends SearchState {
+interface SearchBoxProps
+  extends Pick<SearchState, "setSearchParams" | "searchParams"> {
   onSubmitHandler: (event: FormEvent<HTMLFormElement>) => void;
 }
 

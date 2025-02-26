@@ -19,7 +19,6 @@ const Button = ({
   onClickHandler,
 }: ButtonProps) => {
   const baseStyle = getButtonBaseStyles(style);
-  console.log(baseStyle);
   return (
     <button
       className={clsx(`${baseStyle}`, isFocused ? "bg-black text-white" : "")}

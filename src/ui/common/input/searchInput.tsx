@@ -5,9 +5,13 @@ import { FormEvent } from "react";
 
 interface SearchInputProps {
   onSubmitHandler: (event: FormEvent<HTMLFormElement>) => void;
+  disabled?: boolean;
 }
 
-const SearchInput = ({ onSubmitHandler }: SearchInputProps) => {
+const SearchInput = ({
+  onSubmitHandler,
+  disabled = false,
+}: SearchInputProps) => {
   return (
     <form className="relative" onSubmit={onSubmitHandler}>
       <input
@@ -19,6 +23,7 @@ const SearchInput = ({ onSubmitHandler }: SearchInputProps) => {
       <button
         className="absolute right-2 top-1/2 -translate-y-1/2"
         type="submit"
+        disabled={disabled}
       >
         <SearchIcon />
       </button>

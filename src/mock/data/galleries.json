@@ -1,0 +1,57 @@
+{
+  "pages": [
+    {
+      "galleryId": 1,
+      "thumbnail": "https://asdfasdf.com/asdfasdf",
+      "title": "개지리는 전시회",
+      "startDate": "2024-05-23T12:00:00Z",
+      "endDate": "2024-05-31T12:00:00Z"
+    },
+    {
+      "galleryId": 2,
+      "thumbnail": "https://asdfasdf.com/asdfasdf",
+      "title": "개지리는 전시회",
+      "startDate": "2024-05-23T12:00:00Z",
+      "endDate": "2024-05-31T12:00:00Z"
+    },
+    {
+      "galleryId": 3,
+      "thumbnail": "https://asdfasdf.com/asdfasdf",
+      "title": "개지리는 전시회",
+      "startDate": "2024-05-23T12:00:00Z",
+      "endDate": "2024-05-31T12:00:00Z"
+    },
+    {
+      "galleryId": 4,
+      "thumbnail": "https://asdfasdf.com/asdfasdf",
+      "title": "개지리는 전시회",
+      "startDate": "2024-05-23T12:00:00Z",
+      "endDate": "2024-05-31T12:00:00Z"
+    },
+    {
+      "galleryId": 5,
+      "thumbnail": "https://asdfasdf.com/asdfasdf",
+      "title": "개지리는 전시회",
+      "startDate": "2024-05-23T12:00:00Z",
+      "endDate": "2024-05-31T12:00:00Z"
+    },
+    {
+      "galleryId": 6,
+      "thumbnail": "https://asdfasdf.com/asdfasdf",
+      "title": "개지리는 전시회",
+      "startDate": "2024-05-23T12:00:00Z",
+      "endDate": "2024-05-31T12:00:00Z"
+    },
+    {
+      "galleryId": 7,
+      "thumbnail": "https://asdfasdf.com/asdfasdf",
+      "title": "개지리는 전시회",
+      "startDate": "2024-05-23T12:00:00Z",
+      "endDate": "2024-05-31T12:00:00Z"
+    }
+  ],
+  "pageInfo": {
+    "pageIndex": 0,
+    "isDone": true
+  }
+}
